@@ -1,6 +1,9 @@
 import React from "react";
 
 const VehiclePanel = (props) => {
+  console.log("veicle panel");
+  console.log("veicle panel", props.vehiclePanel);
+
   return (
     <div>
       <h5
@@ -9,7 +12,6 @@ const VehiclePanel = (props) => {
         }}
         className="top-0 text-center p-1 absolute w-[93%]"
       >
-        {" "}
         <i className=" text-2xl text-black ri-arrow-down-wide-line"></i>
       </h5>
       <h2 className="text-2xl font-semibold mb-5">Choose a vehicle</h2>

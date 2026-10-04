@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import uberCar from "../assets/uberCar.png";
 
-const LookingForDriver = () => {
+const LookingForDriver = (props) => {
   return (
     <div>
       <h5
         onClick={() => {
-          //props.setVehiclePanel(false);
+          props.setLookingForDriverPanel(false);
           props.setConfirmRidePanel(false);
         }}
         className="top-0 text-center p-1 absolute w-[93%]"

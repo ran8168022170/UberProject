@@ -1,10 +1,17 @@
 import React from "react";
 import uberCar from "../assets/uberCar.png";
 
-const WaitingForDriver = () => {
+const WaitingForDriver = (props) => {
+  console.log("waitin for driver");
+
   return (
     <div>
-      <h5 className="top-0 text-center p-1 absolute w-[93%]">
+      <h5
+        onClick={() => {
+          props.setWaitingForDriverPanel(false);
+        }}
+        className="top-0 text-center p-1 absolute w-[93%]"
+      >
         <i className=" text-2xl text-black ri-arrow-down-wide-line"></i>
       </h5>
       <div className="flex items-center justify-between">

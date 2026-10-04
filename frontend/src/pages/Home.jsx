@@ -16,14 +16,14 @@ const Home = () => {
   const confirmRidePanelRef = useRef(null);
   const panelCloseRef = useRef(null);
   const lookingForDriverRef = useRef(null);
-  const waitinForDriverRef = useRef(null);
+  const waitingForDriverRef = useRef(null);
 
   const [panelOpen, setPanelOpen] = useState(false);
 
   const [vehiclePanel, setVehiclePanel] = useState(false);
   const [confirmRidePanel, setConfirmRidePanel] = useState(false);
   const [lookingForDriverPanel, setLookingForDriverPanel] = useState(false);
-  const [waitinForDriverPanel, setWaitinForDriverPanel] = useState(false);
+  const [waitingForDriverPanel, setWaitingForDriverPanel] = useState(false);
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -99,17 +99,17 @@ const Home = () => {
 
   useGSAP(
     function () {
-      if (waitinForDriverPanel) {
-        gsap.to(waitinForDriverRef.current, {
+      if (waitingForDriverPanel) {
+        gsap.to(waitingForDriverRef.current, {
           transform: "translateY(0)",
         });
       } else {
-        gsap.to(waitinForDriverRef.current, {
+        gsap.to(waitingForDriverRef.current, {
           transform: "translateY(100%)",
         });
       }
     },
-    [waitinForDriverPanel],
+    [waitingForDriverPanel],
   );
 
   return (
@@ -180,8 +180,8 @@ const Home = () => {
         ref={vehiclePanelRef}
         className="z-10 fixed  w-full bottom-0 translate-y-full bg-white px-3 py-10 pt-14"
       >
-        9
         <VehiclePanel
+          vehiclePanel={vehiclePanel}
           setVehiclePanel={setVehiclePanel}
           setConfirmRidePanel={setConfirmRidePanel}
         />
@@ -202,13 +202,17 @@ const Home = () => {
         className="z-10 fixed  w-full bottom-0 translate-y-full bg-white px-3 py-10 pt-14"
       >
         <LookingForDriver
+          setWaitingForDriverPanel={setWaitingForDriverPanel}
+          lookingForDriverPanel={lookingForDriverPanel}
           setLookingForDriverPanel={setLookingForDriverPanel}
-          setWaitinForDriverPanel={setWaitinForDriverPanel}
         />
       </div>
 
-      <div className="z-10 fixed  w-full bottom-0  bg-white px-3 py-10 pt-14">
-        <WaitingForDriver setWaitinForDriverPanel={setWaitinForDriverPanel} />
+      <div
+        ref={waitingForDriverRef}
+        className="z-10 fixed  w-full bottom-0 translate-y-full    bg-white px-3 py-10 pt-14"
+      >
+        <WaitingForDriver setWaitingForDriverPanel={setWaitingForDriverPanel} />
       </div>
     </div>
   );

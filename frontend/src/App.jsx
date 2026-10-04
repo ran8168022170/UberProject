@@ -12,6 +12,8 @@ import { UserProtectedWrapper } from "./pages/UserProtectedWrapper.jsx";
 import UserLogout from "./pages/UserLogout.jsx";
 import CaptainHome from "./pages/CaptainHome.jsx";
 import { CaptainProtectedWrapper } from "./pages/CaptainProtectWrapper.jsx";
+import Riding from "./pages/Riding.jsx";
+import CaptainRiding from "./pages/CaptainRiding.jsx";
 
 function App() {
   const ans = useContext(UserDataContext);
@@ -20,6 +22,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Start />} />
       <Route path="/user-login" element={<UserLogin />} />
+      <Route path="/riding" element={<Riding />} />
+
       <Route path="/user-signup" element={<UserSignup />} />
       <Route
         path="/user/logout"
@@ -31,22 +35,18 @@ function App() {
       />
       <Route path="/captain-login" element={<CaptainLogin />} />
       <Route path="/captain-signup" element={<CaptainSignup />} />
-      <Route
+      <Route path="/captain-riding" element={<CaptainRiding />} />
+
+      {/* <Route
         path="/home"
         element={
           <UserProtectedWrapper>
             <Home />
           </UserProtectedWrapper>
         }
-      />
-      <Route
-        path="/captain-home"
-        element={
-          <CaptainProtectedWrapper>
-            <CaptainHome />
-          </CaptainProtectedWrapper>
-        }
-      />
+      /> */}
+      <Route path="/home" element={<Home />} />
+      <Route path="/captain-home" element={<CaptainHome />} />
     </Routes>
   );
 }
